@@ -3,11 +3,15 @@ import axios from "axios";
 import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 import Image from 'next/image';
+import Head from 'next/head';
 
 function Home(props) {
   const latestPost = props.latestPost;
   return (
     <>
+    <Head>
+      <title>AM || Home</title>
+    </Head>
       <div className={styles.container}>
         <div className={styles.left}>
           <h1>Welcome to My Portfolio</h1>

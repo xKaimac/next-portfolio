@@ -5,11 +5,16 @@ import axios from "axios";
 import Link from 'next/link';
 
 import style from '@/styles/contactDetails.module.css';
+import Head from "next/head";
 
 
 const ContactDetails = ({contacts}) => {
 
     return (
+      <>
+      <Head>
+        <title>AM || Contact Details</title>
+      </Head>
         <div className={style.container}>
             <h1 className={style.title}>Get In Touch</h1>
             <ul className={style.contactList}>
@@ -30,6 +35,7 @@ const ContactDetails = ({contacts}) => {
             <h1 className={style.subTitle}>Or you can use the below form and I&apos;ll get back to you:</h1>
             <ContactForm />
         </div>
+        </>
       )
 };
 

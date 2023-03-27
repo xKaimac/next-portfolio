@@ -7,6 +7,10 @@ import styles from "@/styles/slug.module.css";
 export default function Post({ post }) {
   const postDate = new Date(post.attributes.Date).toLocaleDateString();
   return (
+    <>
+    <Head>
+      <title>AM || {post.attributes.Title}</title>
+    </Head>
     <main className={styles.container}>
       <article className={styles.article}>
         <h1 className={styles.title}>{post.attributes.Title}</h1>
@@ -15,6 +19,7 @@ export default function Post({ post }) {
         <ReactMarkdown className={styles.body}>{post.attributes.Body}</ReactMarkdown>
       </article>
     </main>
+    </>
   );
 }
 

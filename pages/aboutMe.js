@@ -1,12 +1,16 @@
 import axios from "axios";
 import Link from 'next/link';
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Head from 'next/head';
 
 import style from '@/styles/aboutMe.module.css'
 
 const AboutMe = ({aboutMes}) => {
     return (
         <>
+        <Head>
+            <title>AM || About Me</title>
+        </Head>
             <main className={style.container}>
                 <article className={style.article}>
                     <h1 className={style.aboutMeTitle}>About Me</h1>

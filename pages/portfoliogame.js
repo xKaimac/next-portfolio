@@ -1,9 +1,14 @@
 import React from 'react';
+import Head from 'next/head';
 
 import styles from "@/styles/portfoliogame.module.css";
 
 export default function PortFoliogame() {
   return (
+    <>
+    <Head>
+      <title key="title">AM || Portfolio Game</title>
+    </Head>
     <div className={styles.container}>
         <div className={styles.titleContainer}>
             <h1 className={styles.title}>
@@ -20,5 +25,6 @@ While working on this project, I gained a lot of experience in Python programmin
 The game has been a valuable addition to my portfolio, highlighting my programming skills and creativity. I wrote an article about the development process, which explains the technical details and design choices I made. If you&apos;re interested in game development or Python programming, feel free to check it out!
         </p>
     </div>
+    </>
   )
 }

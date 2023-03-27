@@ -1,10 +1,15 @@
 import axios from "axios";
 import Link from "next/link";
+import Head from "next/head";
 
 import styles from "@/styles/blogPosts.module.css";
 
 const BlogPosts = ({ posts }) => {
   return (
+    <>
+    <Head>
+      <title>AM || Blog Posts</title>
+    </Head>
     <div className={styles.container}>
       <h1 className={styles.title}>Latest Blog Posts</h1>
       <ul className={styles.list}>
@@ -27,6 +32,7 @@ const BlogPosts = ({ posts }) => {
         })}
       </ul>
     </div>
+    </>
   );
 };
 

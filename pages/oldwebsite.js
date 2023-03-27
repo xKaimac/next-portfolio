@@ -1,10 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 
 import styles from "@/styles/oldwebsite.module.css";
 
 export default function oldwebsite() {
   return (
+    <>
+    <Head>
+        <title>AM || Old Website</title>
+    </Head>
     <div className={styles.container}>
         <div className={styles.titleContainer}>
             <h1 className={styles.title}>
@@ -20,5 +25,6 @@ export default function oldwebsite() {
             </Link>
         </div>
     </div>
+    </>
   )
 }
