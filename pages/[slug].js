@@ -1,5 +1,6 @@
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
+import Head from 'next/head';
 
 import styles from "@/styles/slug.module.css";
 
