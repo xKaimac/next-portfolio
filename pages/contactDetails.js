@@ -13,11 +13,15 @@ const ContactDetails = ({contacts}) => {
         <div className={style.container}>
             <h1 className={style.title}>Get In Touch</h1>
             <ul className={style.contactList}>
-              {contacts.data.map((contact) => (
+              {contacts.data.map((contact) => (                
                 <li key={contact.id}>
                     <div className={style.links}>
                       <Link className={style.link} href={contact.attributes.Info}>
-                        <image className={style.icon}src={'https://strapi-portfolio.herokuapp.com' + contact.attributes.icon.data.attributes.url }/>
+                        <img
+                        width="50"
+                        height="50"
+                        className={style.icon}
+                        src={'https://strapi-portfolio.herokuapp.com' + contact.attributes.icon.data.attributes.url }/>
                       </Link>
                     </div>
                 </li>

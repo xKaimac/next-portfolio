@@ -10,7 +10,7 @@ export default function PortFoliogame() {
                 Use the arrow keys, or WASD, to move. Press the spacebar to interact with objects when prompted. Each building has an object that can be interacted with. This is shown with a glowing outline of the object.
             </h1>
         </div>
-        <iframe className={styles.game} src="http://public-start.surge.sh/pyGame" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" allowfullscreen></iframe>
+        <iframe className={styles.game} src="https://portfolio-site-gamma-snowy.vercel.app/pyGame.html" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" allowfullscreen></iframe>
         <br/>
         <p>
         I created a portfolio game using Python that I&apos;m really proud of. The game is simple and consists of three unique rooms that showcase parts of my life experiences. It serves as an interactive resume.
