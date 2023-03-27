@@ -1,11 +1,16 @@
 import axios from "axios";
 import Link from "next/link";
+import Head from "next/head";
 
 import styles from "@/styles/projects.module.css";
 
 const Projects = ({ projects }) => {
   return (
-    <div className={styles.container}>
+    <>
+      <Head>
+        <title >AM || Projects</title>
+      </Head>    
+      <div className={styles.container}>
       <h1 className={styles.title}>My Projects</h1>
       <ul className={styles.list}>
         {projects.data.map((project) => (
@@ -18,6 +23,7 @@ const Projects = ({ projects }) => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 
