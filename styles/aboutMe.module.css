@@ -1,0 +1,40 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.article {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.aboutMeTitle {
+    text-align: center;
+}
+
+.aboutMeBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.contactLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 1rem;
+    text-decoration: none;
+}

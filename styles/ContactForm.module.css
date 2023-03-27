@@ -1,0 +1,77 @@
+.contactFormContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  text-align: center !important;
+}
+.buttonContainer {
+  display: inline-block;
+  text-align: center !important;
+}
+
+.contactFormTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contactFormFields {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.formControl {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.formControl:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.textarea {
+  height: 150px;
+}
+
+.button[type="submit"] {
+  background-color: #0070f3;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button[type="submit"]:hover {
+  background-color: #0053a8;
+}
+
+.formControlButton {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-top: auto;
+  
+}
+
