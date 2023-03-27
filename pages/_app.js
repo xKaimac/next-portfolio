@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
         rel="stylesheet"
       />
       <NavBar />
-      <Component {...pageProps} />
+      <Component className="main-content" {...pageProps} />
       <Footer />
     </>
   )

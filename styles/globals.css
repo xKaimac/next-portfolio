@@ -72,11 +72,12 @@ a:hover {
   height: 80px;
   background-color: #ffffff;
   box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  left:0;
-  bottom:0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   right: 0;
 }
+
 
 .container {
   display: flex;
@@ -89,4 +90,8 @@ a:hover {
   font-weight: bold;
   color: #333333;
   margin: 0;
+}
+
+.main-content {
+  margin-bottom: 80px;
 }
