@@ -9,8 +9,9 @@ const AboutMe = ({aboutMes}) => {
     return (
         <>
         <Head>
-            <title>| About Me</title>
+            <title>{"//"}About Me</title>
         </Head>
+        <div className={style.space}></div>
             <main className={style.container}>
                 <article className={style.article}>
                     <h1 className={style.aboutMeTitle}>About Me</h1>

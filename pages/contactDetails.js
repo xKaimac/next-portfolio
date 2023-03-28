@@ -13,7 +13,7 @@ const ContactDetails = ({contacts}) => {
     return (
       <>
       <Head>
-        <title>| Contact Details</title>
+        <title>{"//"}Contact Details</title>
       </Head>
         <div className={style.container}>
             <h1 className={style.title}>Get In Touch</h1>

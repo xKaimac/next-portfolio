@@ -11,7 +11,7 @@ function Home(props) {
   return (
     <>
     <Head>
-      <title>| Home</title>
+      <title>{"//"}Home</title>
     </Head>
 
       <div className={styles.container}>

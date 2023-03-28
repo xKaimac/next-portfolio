@@ -10,7 +10,7 @@ export default function Post({ post }) {
   return (
     <>
     <Head>
-      <title>| {post.attributes.Title}</title>
+      <title>{"//"}{post.attributes.Title}</title>
     </Head>
     <main className={styles.container}>
       <article className={styles.article}>

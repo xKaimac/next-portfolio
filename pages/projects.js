@@ -8,17 +8,22 @@ const Projects = ({ projects }) => {
   return (
     <>
       <Head>
-        <title >| Projects</title>
+        <title >{"//"}Projects</title>
       </Head>    
-      <div className={styles.container}>
       <h1 className={styles.title}>My Projects</h1>
+      <div className={styles.container}>
       <ul className={styles.list}>
         {projects.data.map((project) => (
           <li key={project.id} className={styles.item}>
-            <Link className= {styles.link} href={project.attributes.link}>
-              <p>{project.attributes.Title}</p>
-            </Link>
-            <p className={styles.subtitle}>Article: {project.attributes.Subtitle}</p>
+          <Link className= {styles.link} href={project.attributes.link}>
+            <div className={styles.postContent}>
+              <div className={styles.postText}>
+              <h2 className={styles.postTitle}>{project.attributes.Title}</h2>
+              <p className={styles.subtitle}>{project.attributes.Subtitle}</p>
+              <p className={styles.body}>{project.attributes.Body}</p>
+              </div>
+            </div>
+          </Link>
           </li>
         ))}
       </ul>

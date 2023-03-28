@@ -9,8 +9,9 @@ export default function oldwebsite() {
   return (
     <>
     <Head>
-        <title>| Old Website</title>
+        <title>{"//"}Old Website</title>
     </Head>
+    <div className={styles.space}></div>
     <div className={styles.container}>
         <div className={styles.titleContainer}>
             <h1 className={styles.title}>

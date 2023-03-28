@@ -8,10 +8,10 @@ const BlogPosts = ({ posts }) => {
   return (
     <>
     <Head>
-      <title>| Blog Posts</title>
+      <title>{"//"}Blog Posts</title>
     </Head>
+    <h1 className={styles.title}>Latest Blog Posts</h1>
     <div className={styles.container}>
-      <h1 className={styles.title}>Latest Blog Posts</h1>
       <ol className={styles.list}>
         {posts.map((post) => {
           const postDate = new Date(post.attributes.Date).toLocaleDateString();
@@ -24,7 +24,6 @@ const BlogPosts = ({ posts }) => {
                     <p className={styles.subtitle}>{post.attributes.Subtitle}</p>
                     <p className={styles.date}>{postDate}</p>
                   </div>
-                  {/* <img className={styles.postImage} src={'https://strapi-portfolio.herokuapp.com' + post.attributes.preview.data[0].attributes.url}/> */}
                 </div>
               </Link>
             </li>
