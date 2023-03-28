@@ -4,7 +4,7 @@
   padding: 0px;
   display: flex;
   flex-direction: row;
-  }
+}
 
 .outerContainer {
   max-width: 1500px;
@@ -13,56 +13,67 @@
   display: flex;
   flex-direction: column;
 }
-  
-  .left {
+@media only screen and (min-width: 768px) {
+.left {
   flex: 1;
-  margin-left: 20;
-  }
+  font-size: 5rem;
+}
+
+.lefth1 {
   
-  .left h1 {
-  font-size: 150px;
+  text-align: left;
   font-weight: bold;
   color: #333;
   margin-bottom: 30px;
-  }
-  
-  .right {
+}
+
+.right {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  }
-  
-  .right img {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.righth1 {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.right img {
   max-width: 100%;
   height: auto;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .latestBlog {
+}
+}
+
+.latestBlog {
   padding-top: 50px;
   padding-bottom: 25px;
-  }
-  
-  .latestBlog h2 {
+}
+
+.latestBlog h2 {
   font-size: 24px;
   font-weight: bold;
   color: #333;
   margin-bottom: 30px;
-  }
-  
-  .list {
+}
+
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
-  }
-  
-  .item {
+}
+
+.item {
   margin-bottom: 20px;
-  }
-  
-  .link {
+}
+
+.link {
   display: block;
   padding: 20px;
   background-color: #fff;
@@ -70,29 +81,59 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   text-decoration: none;
-  }
-  
-  .link:hover {
+}
+
+.link:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .postTitle {
+}
+
+.postTitle {
+  margin-top: 0;
   font-size: 24px;
   font-weight: bold;
   color: #333;
   margin-bottom: 5px;
-  }
-  
-  .subtitle {
+}
+
+.subtitle {
   font-size: 16px;
   color: #666;
   margin-bottom: 0;
-  }
+}
 
-    
 .featuredProject h2 {
   font-size: 24px;
   font-weight: bold;
   color: #333;
   margin-bottom: 30px;
+}
+
+/* Media Query for smaller screens */
+@media only screen and (max-width: 926px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    margin: 0;
+    text-align: center;
+  }
+
+  .lefth1 {
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+
+  .righth1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .right img {
+    max-width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
