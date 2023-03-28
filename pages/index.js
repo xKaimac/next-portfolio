@@ -7,11 +7,13 @@ import Head from 'next/head';
 
 function Home(props) {
   const latestPost = props.latestPost;
+  const featuredProject = props.featuredProject;
   return (
     <>
     <Head>
       <title>| Home</title>
     </Head>
+      <div className={styles.outerContainer}>
       <div className={styles.container}>
         <div className={styles.left}>
           <h1 className={styles.title}>Welcome to My Portfolio.</h1>
@@ -31,6 +33,18 @@ function Home(props) {
           </li>
         </ul>
       </div>
+      <div className={styles.featuredProject}>
+        <h2>Featured Project</h2>
+        <ul className={styles.list}>
+          <li key={featuredProject.id} className={styles.item}>
+            <Link className={styles.link} href="/portfoliogame.js">
+              <h3 className={styles.postTitle}>{featuredProject.Title}</h3>
+              <p className={styles.subtitle}>{featuredProject.Subtitle}</p>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      </div>
     </>
   );
 }
@@ -38,8 +52,10 @@ function Home(props) {
 export async function getStaticProps() {
   try {
     // fetch all blog posts
-    const result = await axios.get("https://strapi-portfolio.herokuapp.com/api/blogs");
-    const data = result.data;
+    const postResult = await axios.get("https://strapi-portfolio.herokuapp.com/api/blogs");
+    const projectResult = await axios.get("https://strapi-portfolio.herokuapp.com/api/projects");
+    const data = postResult.data;
+    
 
     // sort posts by date in descending order
     const sortedPosts = data.data.sort(
@@ -48,12 +64,15 @@ export async function getStaticProps() {
         new Date(a.attributes.date).getTime()
     );
 
-    // get the most recent post
+    // get the most recent post and featured project
     const latestPost = sortedPosts[0];
+    const featuredProject = projectResult.data.data[0].attributes;
+    console.log(featuredProject);
 
     return {
       props: {
         latestPost,
+        featuredProject
       },
     };
   } catch (error) {
