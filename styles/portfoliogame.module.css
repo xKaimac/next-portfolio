@@ -25,3 +25,29 @@
     transition: box-shadow 0.3s ease;
     padding: 20px;
   }
+
+@media screen and (max-width: 844px) {
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .game {
+    max-width: 100%;
+  }
+
+  .titleContainer p {
+    padding: 1rem;
+  }
+  
+}

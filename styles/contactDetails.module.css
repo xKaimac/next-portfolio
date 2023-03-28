@@ -92,3 +92,15 @@
 .contactFormFields {
   margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .icon {
+    width: 5rem;
+    height: 5rem;
+    margin: 0;
+  }
+  .contactList li {
+    margin:0;
+  }
+}
+  
