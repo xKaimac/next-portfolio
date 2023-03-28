@@ -37,7 +37,7 @@ function Home(props) {
         <h2>Featured Project</h2>
         <ul className={styles.list}>
           <li key={featuredProject.id} className={styles.item}>
-            <Link className={styles.link} href="/portfoliogame.js">
+            <Link className={styles.link} href="/portfoliogame">
               <h3 className={styles.postTitle}>{featuredProject.Title}</h3>
               <p className={styles.subtitle}>{featuredProject.Subtitle}</p>
             </Link>

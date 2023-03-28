@@ -9,7 +9,7 @@
 .outerContainer {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
 }
