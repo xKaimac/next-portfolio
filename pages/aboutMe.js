@@ -14,7 +14,7 @@ const AboutMe = ({aboutMes}) => {
             <main className={style.container}>
                 <article className={style.article}>
                     <h1 className={style.aboutMeTitle}>About Me</h1>
-                    <ul>
+
                       {aboutMes.data.map((aboutMe) => (
                         <div key={aboutMe.id}>
                             <ReactMarkdown className={style.aboutMeBody}>{aboutMe.attributes.Description}</ReactMarkdown>
@@ -22,7 +22,7 @@ const AboutMe = ({aboutMes}) => {
                             <Link href="/contactDetails" className={style.contactLink}>If you would like to contact me, please click here.</Link>
                         </div>
                       ))}
-                    </ul>
+
                 </article>
             </main>
         </>

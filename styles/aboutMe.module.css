@@ -1,7 +1,8 @@
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin-left: auto;
     padding: 50px;
+    margin-right: auto;
 }
 
 .article {
@@ -17,24 +18,9 @@
 }
 
 .aboutMeBody {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 800px;
-    padding: 0 1rem;
 }
 
 .contactLink {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 800px;
-    padding: 0 1rem;
     text-decoration: none;
 }
