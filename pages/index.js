@@ -10,7 +10,7 @@ function Home(props) {
   return (
     <>
     <Head>
-      <title>AM || Home</title>
+      <title>//Home</title>
     </Head>
       <div className={styles.container}>
         <div className={styles.left}>

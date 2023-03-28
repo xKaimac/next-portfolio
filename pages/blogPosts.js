@@ -8,7 +8,7 @@ const BlogPosts = ({ posts }) => {
   return (
     <>
     <Head>
-      <title>AM || Blog Posts</title>
+      <title>//Blog Posts</title>
     </Head>
     <div className={styles.container}>
       <h1 className={styles.title}>Latest Blog Posts</h1>

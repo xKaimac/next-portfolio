@@ -9,7 +9,7 @@ const AboutMe = ({aboutMes}) => {
     return (
         <>
         <Head>
-            <title>AM || About Me</title>
+            <title>//About Me</title>
         </Head>
             <main className={style.container}>
                 <article className={style.article}>
