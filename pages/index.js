@@ -66,7 +66,7 @@ export async function getStaticProps() {
 
     // get the most recent post and featured project
     const latestPost = sortedPosts[0];
-    const featuredProject = projectResult.data.data[0].attributes;
+    const featuredProject = projectResult.data.data[1].attributes;
     console.log(featuredProject);
 
     return {
