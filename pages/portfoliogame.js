@@ -7,7 +7,7 @@ export default function PortFoliogame() {
   return (
     <>
     <Head>
-      <title key="title">//Portfolio Game</title>
+      <title key="title">| Portfolio Game</title>
     </Head>
     <div className={styles.container}>
         <div className={styles.titleContainer}>
