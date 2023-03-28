@@ -43,7 +43,8 @@
   }
   
   .game {
-    max-width: 100%;
+    height: 100vw;
+    width: 100vw;
   }
 
   .titleContainer p {
