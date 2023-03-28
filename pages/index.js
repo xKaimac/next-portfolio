@@ -13,7 +13,7 @@ function Home(props) {
     <Head>
       <title>| Home</title>
     </Head>
-      <div className={styles.outerContainer}>
+
       <div className={styles.container}>
         <div className={styles.left}>
           <h1 className={styles.title}>Welcome to My Portfolio.</h1>
@@ -22,6 +22,7 @@ function Home(props) {
           <img src="https://res.cloudinary.com/dhfmjugt0/image/upload/v1679973639/Emoticon_Smile_Face_78f3e97e36.png?updated_at=2023-03-28T03:20:40.998Z" alt="Image could not be loaded" />
         </div>
       </div>
+      <div className={styles.outerContainer}>
       <div className={styles.latestBlog}>
         <h2>Latest Blog Post</h2>
         <ul className={styles.list}>
