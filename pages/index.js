@@ -14,10 +14,10 @@ function Home(props) {
     </Head>
       <div className={styles.container}>
         <div className={styles.left}>
-          <h1>Welcome to My Portfolio</h1>
+          <h1 className={styles.title}>Welcome to My Portfolio.</h1>
         </div>
         <div className={styles.right}>
-          <img src="https://as1.ftcdn.net/v2/jpg/02/48/42/64/1000_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg" alt="Image could not be loaded" />
+          <img src="https://res.cloudinary.com/dhfmjugt0/image/upload/v1679973639/Emoticon_Smile_Face_78f3e97e36.png?updated_at=2023-03-28T03:20:40.998Z" alt="Image could not be loaded" />
         </div>
       </div>
       <div className={styles.latestBlog}>

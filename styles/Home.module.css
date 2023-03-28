@@ -1,17 +1,18 @@
 .container {
-  max-width: 800px;
+  max-width: 1500px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 0px;
   display: flex;
   flex-direction: row;
   }
   
   .left {
   flex: 1;
+  margin-left: 20;
   }
   
   .left h1 {
-  font-size: 36px;
+  font-size: 150px;
   font-weight: bold;
   color: #333;
   margin-bottom: 30px;
