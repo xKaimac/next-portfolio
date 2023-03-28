@@ -22,11 +22,11 @@ const ContactDetails = ({contacts}) => {
                 <li key={contact.id}>
                     <div className={style.links}>
                       <Link className={style.link} href={contact.attributes.Info}>
-                        <img
+                        <img alt="Image could not be loaded"
                         width="50"
                         height="50"
                         className={style.icon}
-                        src={'https://strapi-portfolio.herokuapp.com' + contact.attributes.icon.data.attributes.url }/>
+                        src={contact.attributes.ImageUrl }/>
                       </Link>
                     </div>
                 </li>
