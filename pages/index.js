@@ -60,8 +60,8 @@ export async function getStaticProps() {
     // sort posts by date in descending order
     const sortedPosts = data.data.sort(
       (a, b) =>
-        new Date(b.attributes.date).getTime() -
-        new Date(a.attributes.date).getTime()
+        new Date(b.attributes.Date).getTime() -
+        new Date(a.attributes.Date).getTime()
     );
 
     // get the most recent post and featured project

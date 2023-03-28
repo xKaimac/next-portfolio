@@ -12,8 +12,8 @@ const BlogPosts = ({ posts }) => {
     </Head>
     <div className={styles.container}>
       <h1 className={styles.title}>Latest Blog Posts</h1>
-      <ul className={styles.list}>
-        {posts.data.map((post) => {
+      <ol className={styles.list}>
+        {posts.map((post) => {
           const postDate = new Date(post.attributes.Date).toLocaleDateString();
           return (
             <li key={post.id} className={styles.item}>
@@ -30,7 +30,7 @@ const BlogPosts = ({ posts }) => {
             </li>
           );
         })}
-      </ul>
+      </ol>
     </div>
     </>
   );
@@ -40,9 +40,17 @@ export async function getStaticProps() {
   try {
     const result = await axios.get("https://strapi-portfolio.herokuapp.com/api/blogs", {params:{ populate: "*"}});
     const data = result.data;
+
+    // sort posts by date in descending order
+    const sortedPosts = data.data.sort(
+      (a, b) =>
+        new Date(b.attributes.Date).getTime() -
+        new Date(a.attributes.Date).getTime()
+    );
+
     return {
       props: {
-        posts: data,
+        posts: sortedPosts,
       },
     };
   } catch (error) {

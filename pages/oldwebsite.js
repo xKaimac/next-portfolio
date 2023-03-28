@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import { OldWebsiteBody } from '@/components/oldWebsiteBody';
 
 import styles from "@/styles/oldwebsite.module.css";
 
@@ -18,6 +19,7 @@ export default function oldwebsite() {
         </div>
         <iframe className={styles.game} src="https://portfolio-site-gamma-snowy.vercel.app" name="myiFrame"  allowfullscreen ></iframe>
         <br/>
+        <OldWebsiteBody /> 
         <div className={styles.infoContainer}>
             <p>To see the source code, check it out on my GitHub!</p>
             <Link href="https://github.com/xKaimac/Porfolio-site">
