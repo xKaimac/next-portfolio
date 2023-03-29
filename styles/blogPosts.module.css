@@ -1,15 +1,17 @@
 .container {
   max-width: 100vw;
   margin: 0 auto;
-  padding: 5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
   display: flex; 
   justify-content: center;
 }
 
 .title {
-  padding-top: 5rem;
+  padding-top: 2rem;
   text-align: center;
   font-size: 5rem;
+  padding-bottom: 1rem;
 }
   
   .list {
@@ -88,11 +90,11 @@
       flex-basis: calc(50% - 1rem);
     }
     .link {
-      width: 75vw;
-      height: 75vw;
-    }
-    .postContent {
-      margin-top: 20vw
+      width: 85vw;
+      height: 85vw;
     }
 
+   .title {
+     font-size: 3rem;
+    }
   }

@@ -53,7 +53,8 @@ a:hover {
 
 .nav li {
   margin-right: .5rem;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .nav li:last-child {
@@ -119,6 +120,10 @@ a:hover {
   /* reduce the font-size and padding of the footer for smaller screens */
   .footer p {
     font-size: 12px;
+  }
+
+  .nav li {
+    padding: 0.25rem;
   }
 
   .container {

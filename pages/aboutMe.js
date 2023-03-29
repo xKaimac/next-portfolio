@@ -11,7 +11,6 @@ const AboutMe = ({aboutMes}) => {
         <Head>
             <title>{"//"}About Me</title>
         </Head>
-        <div className={style.space}></div>
         <h1 className={style.aboutMeTitle}>About Me</h1>
             <main className={style.container}>
                 <article className={style.article}>
