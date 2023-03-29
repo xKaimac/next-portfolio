@@ -7,7 +7,7 @@ export function IndexWelcome() {
               <h1 className={styles.title}>Welcome to My Portfolio.</h1>
             </div>
             <div className={styles.right}>
-              <img src="https://res.cloudinary.com/dhfmjugt0/image/upload/v1680126242/ezgif_1_55ad0192dc_c9f36b04dc.gif?updated_at=2023-03-29T21:44:03.491Z" alt="Image could not be loaded" />
+              <img src="https://res.cloudinary.com/dhfmjugt0/image/upload/v1680128222/ezgif_com_gif_maker_a621f6de87.gif?updated_at=2023-03-29T22:17:02.884Z" alt="Image could not be loaded" />
             </div>
         </div>
     )
