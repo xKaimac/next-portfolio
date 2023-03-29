@@ -43,6 +43,35 @@
 
   @media screen and (max-width: 768px) {
     .container {
-      padding: 20px;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .article {
+      width: 85vw;
+      padding: 0;
+      margin: 0;
+    }
+    .title {
+      font-size: 1.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .subtitle {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .date {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .body {
+      padding-top: .5rem;
+      font-size: 1.1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
+  
