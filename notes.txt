@@ -7,10 +7,6 @@ font colour is different in slug links to the project links
 
 contact form colour?
 
-full screen white on the mobile html/game page
-
-split up the portfoliogame body so that each component is only doing 1 thing
-
 res on contact images are background
 
-fix the project pages
+make gif a link to project 
