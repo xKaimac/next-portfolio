@@ -1,17 +1,18 @@
 import axios from "axios";
+
 import Link from "next/link";
+
 import styles from "@/styles/Home.module.css";
-import Head from 'next/head';
+
+import { IndexHead } from "@/components/index/indexHead";
+
 
 function Home(props) {
   const latestPost = props.latestPost;
   const featuredProject = props.featuredProject;
   return (
     <>
-    <Head>
-      <title>{"//"}Home</title>
-    </Head>
-
+      <IndexHead />
       <div className={styles.container}>
         <div className={styles.left}>
           <h1 className={styles.title}>Welcome to My Portfolio.</h1>
@@ -21,28 +22,28 @@ function Home(props) {
         </div>
       </div>
       <div className={styles.outerContainer}>
-      <div className={styles.latestBlog}>
-        <h2>Latest Blog Post</h2>
-        <ul className={styles.list}>
-          <li key={latestPost.id} className={styles.item}>
-            <Link className={styles.link} href={latestPost.attributes.slug}>
-              <h3 className={styles.postTitle}>{latestPost.attributes.Title}</h3>
-              <p className={styles.subtitle}>{latestPost.attributes.Subtitle}</p>
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className={styles.featuredProject}>
-        <h2>Featured Project</h2>
-        <ul className={styles.list}>
-          <li key={featuredProject.id} className={styles.item}>
-            <Link className={styles.link} href="/portfoliogame">
-              <h3 className={styles.postTitle}>{featuredProject.Title}</h3>
-              <p className={styles.subtitle}>{featuredProject.Subtitle}</p>
-            </Link>
-          </li>
-        </ul>
-      </div>
+        <div className={styles.latestBlog}>
+          <h2>Latest Blog Post</h2>
+          <ul className={styles.list}>
+            <li key={latestPost.id} className={styles.item}>
+              <Link className={styles.link} href={latestPost.attributes.slug}>
+                <h3 className={styles.postTitle}>{latestPost.attributes.Title}</h3>
+                <p className={styles.subtitle}>{latestPost.attributes.Subtitle}</p>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className={styles.featuredProject}>
+          <h2>Featured Project</h2>
+          <ul className={styles.list}>
+            <li key={featuredProject.id} className={styles.item}>
+              <Link className={styles.link} href="/portfoliogame">
+                <h3 className={styles.postTitle}>{featuredProject.Title}</h3>
+                <p className={styles.subtitle}>{featuredProject.Subtitle}</p>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );

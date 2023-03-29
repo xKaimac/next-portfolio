@@ -1,28 +1,32 @@
 import axios from "axios";
+
 import Link from 'next/link';
+
+import { AboutMeHead } from "@/components/aboutMe/aboutMeHead";
+
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import Head from 'next/head';
 
 import style from '@/styles/aboutMe.module.css'
 
 const AboutMe = ({aboutMes}) => {
     return (
         <>
-        <Head>
-            <title>{"//"}About Me</title>
-        </Head>
-        <h1 className={style.aboutMeTitle}>About Me</h1>
-            <main className={style.container}>
+            <AboutMeHead />
+            <div className={style.container}>
                 <article className={style.article}>
                       {aboutMes.data.map((aboutMe) => (
                         <div key={aboutMe.id}>
-                            <ReactMarkdown className={style.aboutMeBody}>{aboutMe.attributes.Description}</ReactMarkdown>
+                            <ReactMarkdown className={style.body}>{aboutMe.attributes.Description}</ReactMarkdown>
                             <br/>
-                            <Link href="/contactDetails" className={style.contactLink}>If you would like to contact me, please click here.</Link>
+                            <p className={style.linkText}>
+                                <Link href="/contactDetails" className={style.link}>
+                                    If you would like to contact me, please click here.
+                                </Link>
+                            </p>
                         </div>
                       ))}
                 </article>
-            </main>
+            </div>
         </>
       )
 };
@@ -31,7 +35,6 @@ export async function getStaticProps() {
     try {
         const result = await axios.get('https://strapi-portfolio.herokuapp.com/api/about-mes');
         const data = result.data;
-        console.log(data);
         return {
             props: {
                 aboutMes: data

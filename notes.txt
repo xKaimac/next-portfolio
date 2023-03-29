@@ -1,0 +1,12 @@
+headings for the portfolio game page
+                html page
+
+Navbar stick to top
+
+font colour is different in slug links to the project links
+
+contact form colour?
+
+full screen white on the mobile html/game page
+
+split up the portfoliogame body so that each component is only doing 1 thing

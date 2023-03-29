@@ -1,16 +1,15 @@
 import axios from "axios";
+
 import Link from "next/link";
-import Head from "next/head";
+
+import { BlogPostsHead } from "@/components/blogPosts/blogPostsHead";
 
 import styles from "@/styles/blogPosts.module.css";
 
 const BlogPosts = ({ posts }) => {
   return (
     <>
-    <Head>
-      <title>{"//"}Blog Posts</title>
-    </Head>
-    <h1 className={styles.title}>Latest Blog Posts</h1>
+    <BlogPostsHead />
     <div className={styles.container}>
       <ol className={styles.list}>
         {posts.map((post) => {
@@ -18,13 +17,11 @@ const BlogPosts = ({ posts }) => {
           return (
             <li key={post.id} className={styles.item}>
               <Link className={styles.link} href={post.attributes.slug}>
-                <div className={styles.postContent}>
                   <div className={styles.postText}>
                     <h2 className={styles.postTitle}>{post.attributes.Title}</h2>
                     <p className={styles.subtitle}>{post.attributes.Subtitle}</p>
                     <p className={styles.date}>{postDate}</p>
                   </div>
-                </div>
               </Link>
             </li>
           );

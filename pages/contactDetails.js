@@ -1,38 +1,34 @@
-import ContactForm from "@/components/ContactForm";
-import Image from "next/image";
+import ContactForm from "@/components/contactDetails/ContactForm";
+import { ContactDetailsHead }  from "@/components/contactDetails/contactDetailsHead";
 
 import axios from "axios";
+
+import Image from "next/image";
 import Link from 'next/link';
 
 import style from '@/styles/contactDetails.module.css';
-import Head from "next/head";
+
 
 
 const ContactDetails = ({contacts}) => {
-
     return (
       <>
-      <Head>
-        <title>{"//"}Contact Details</title>
-      </Head>
+        <ContactDetailsHead />
         <div className={style.container}>
             <h1 className={style.title}>Get In Touch</h1>
             <ul className={style.contactList}>
               {contacts.data.map((contact) => (                
                 <li key={contact.id}>
-                    <div className={style.links}>
-                      <Link className={style.link} href={contact.attributes.Info}>
-                        <img alt="Image could not be loaded"
-                        width="50"
-                        height="50"
-                        className={style.icon}
-                        src={contact.attributes.ImageUrl }/>
-                      </Link>
-                    </div>
+                  <Link className={style.link} href={contact.attributes.Info}>
+                    <Image alt="Image could not be loaded"
+                           width="50"
+                           height="50"
+                           className={style.icon}
+                           src={contact.attributes.ImageUrl }/>
+                  </Link>
                 </li>
               ))}
             </ul>
-            <h1 className={style.subTitle}>Or you can use the below form and I&apos;ll get back to you:</h1>
             <ContactForm />
         </div>
         </>
