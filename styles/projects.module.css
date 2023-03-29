@@ -8,6 +8,7 @@
 .title {
   padding-top: 5rem;
   text-align: center;
+  font-size: 5rem;
 }
 
 .list {
@@ -45,7 +46,7 @@
 }
 
 .postContent {
-  margin-top: 10%;
+  margin-top: 15%;
   margin-left: 5%;
   margin-right: 5%;
   display: flex;
