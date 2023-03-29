@@ -10,3 +10,7 @@ contact form colour?
 full screen white on the mobile html/game page
 
 split up the portfoliogame body so that each component is only doing 1 thing
+
+res on contact images are background
+
+fix the project pages

@@ -13,13 +13,12 @@ export default function oldwebsite() {
   return (
     <>
     <OldWebsiteHead />
-    <h1 className={styles.title}>
-        
-    </h1>
     <div className={styles.container}>
+      <div className={styles.article}>
         <OldWebsiteIframe />
         <OldWebsiteBody /> 
         <OldWebsiteCode />
+      </div>
     </div>
     </>
   )

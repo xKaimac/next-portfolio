@@ -13,12 +13,14 @@ import styles from "@/styles/portfoliogame.module.css";
 export default function PortFoliogame() {
   return (
     <>
-      <PortfolioGameHead />
       <div className={styles.container}>
+        <div className={styles.article}>
+        <PortfolioGameHead />
         <PortfolioGameTitle />
         <PortfolioGameIframe />
         <PortfolioGameBody />
         <PortfolioGameCode />
+        </div>
       </div>
     </>
   )

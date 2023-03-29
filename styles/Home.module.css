@@ -32,8 +32,8 @@
 }
 
 .right img {
-  width: 40vw;
-  border-radius: 50%;
+  width: 20vw;
+  /* border-radius: 50%; */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
