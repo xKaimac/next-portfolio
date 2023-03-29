@@ -12,9 +12,9 @@ const AboutMe = ({aboutMes}) => {
             <title>{"//"}About Me</title>
         </Head>
         <div className={style.space}></div>
+        <h1 className={style.aboutMeTitle}>About Me</h1>
             <main className={style.container}>
                 <article className={style.article}>
-                    <h1 className={style.aboutMeTitle}>About Me</h1>
                       {aboutMes.data.map((aboutMe) => (
                         <div key={aboutMe.id}>
                             <ReactMarkdown className={style.aboutMeBody}>{aboutMe.attributes.Description}</ReactMarkdown>
