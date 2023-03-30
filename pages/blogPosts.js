@@ -31,7 +31,7 @@ const BlogPosts = ({ posts }) => {
         {posts.map((post) => {
           const postDate = new Date(post.attributes.Date).toLocaleDateString();
           return (
-            <motion.li whileTap={{scale: [null, 1.1, 1.1]}}
+            <motion.li whileTap={{scale: [null, 1, 1.1]}}
                        whileHover={{scale: [null, 1.3, 1.2]}}
                        transition={{ duration: 0.2 }}
                        variants={item}

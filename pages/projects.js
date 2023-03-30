@@ -28,7 +28,7 @@ const Projects = ({ projects }) => {
                    variants={list} 
                    className={styles.list}>
           {projects.data.map((project) => (
-            <motion.li whileTap={{scale: [null, 1.025, 1.025]}}
+            <motion.li whileTap={{scale: [null, 1, 1.025]}}
                        whileHover={{scale: [null, 1.1, 1.05]}}
                        transition={{ duration: 0.2 }}
                        variants={item} 
