@@ -24,7 +24,7 @@ const ContactDetails = ({contacts}) => {
                            width="50"
                            height="50"
                            className={style.icon}
-                           src={contact.attributes.ImageUrl }/>
+                           src={contact.attributes.icon.data.attributes.url }/>
                   </Link>
                 </li>
               ))}
