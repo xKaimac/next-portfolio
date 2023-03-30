@@ -18,7 +18,7 @@ export function IndexWelcome() {
             </motion.div>
             <motion.div initial="hidden"
                         animate="visible"
-                        transition={{duration:.75},{ delay: 1 }} 
+                        transition={{duration:.2, delay: 1 }} 
                         variants={right} 
                         className={styles.right}>
               <Link href="/portfoliogame" >
