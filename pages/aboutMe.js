@@ -6,13 +6,23 @@ import { AboutMeHead } from "@/components/aboutMe/aboutMeHead";
 
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
+import { motion } from "framer-motion";
+
 import style from '@/styles/aboutMe.module.css'
 
 const AboutMe = ({aboutMes}) => {
+    const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:100}};
     return (
         <>
             <AboutMeHead />
-            <div className={style.container}>
+            <motion.h1 className={style.title}
+                initial="hidden"
+                animate="visible"
+                variants={page}>About Me</motion.h1>
+            <motion.div className={style.container}
+                        initial="hidden"
+                        animate="visible"
+                        variants={page}>
                 <article className={style.article}>
                       {aboutMes.data.map((aboutMe) => (
                         <div key={aboutMe.id}>
@@ -26,7 +36,7 @@ const AboutMe = ({aboutMes}) => {
                         </div>
                       ))}
                 </article>
-            </div>
+            </motion.div>
         </>
       )
 };

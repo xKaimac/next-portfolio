@@ -45,7 +45,7 @@
         .link:hover {
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
           border: 2px solid #5CB0FF;
-          margin-top:-10px;
+          /* margin-top:-10px; */
         }
         .postText {
           /* outer container for the post content */

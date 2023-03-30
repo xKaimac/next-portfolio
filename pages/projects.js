@@ -4,17 +4,36 @@ import Link from "next/link";
 
 import { ProjectsHead } from "@/components/projects/projectsHead";
 
+import { motion } from "framer-motion";
+
 import styles from "@/styles/projects.module.css";
 
 const Projects = ({ projects }) => {
+  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.1 }},
+  hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
+  }};
+  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:100}};
+  const item = {visible: { opacity: 1, y:0},
+  hidden: { opacity: 0, y:50 }};
   return (
     <> 
       <ProjectsHead />
-      <h1 className={styles.title}>My Projects</h1>
+      <motion.h1 initial="hidden"
+                  animate="visible"
+                  variants={page}
+                  className={styles.title}>My Projects</motion.h1>
       <div className={styles.container}>
-        <ul className={styles.list}>
+        <motion.ul initial="hidden"
+                   animate="visible" 
+                   variants={list} 
+                   className={styles.list}>
           {projects.data.map((project) => (
-            <li key={project.id} className={styles.item}>
+            <motion.li whileTap={{scale: [null, 1.025, 1.025]}}
+                       whileHover={{scale: [null, 1.1, 1.05]}}
+                       transition={{ duration: 0.2 }}
+                       variants={item} 
+                       key={project.id} 
+                       className={styles.item}>
               <Link className= {styles.link} href={project.attributes.link}>
                   <div className={styles.postText}>
                     <h2 className={styles.postTitle}>{project.attributes.Title}</h2>
@@ -22,9 +41,9 @@ const Projects = ({ projects }) => {
                     <p className={styles.body}>{project.attributes.Body}</p>
                   </div>
               </Link>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </>
   );

@@ -8,7 +8,6 @@ export function AboutMeHead() {
             <Head>
                 <title>{"//"}About Me</title>
             </Head>
-            <h1 className={style.title}>About Me</h1>
         </>
     )
 }
