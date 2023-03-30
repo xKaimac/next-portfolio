@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import styles from "@/styles/projects.module.css";
 
 const Projects = ({ projects }) => {
-  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.1 }},
+  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
   hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
   }};
   const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:100}};
@@ -28,9 +28,9 @@ const Projects = ({ projects }) => {
                    variants={list} 
                    className={styles.list}>
           {projects.data.map((project) => (
-            <motion.li whileTap={{scale: [null, 1, 1.025]}}
-                       whileHover={{scale: [null, 1.1, 1.05]}}
-                       transition={{ duration: 0.2 }}
+            <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                       whileHover={{scale: [null, 1.025, 1.025]}}
+                       transition={{ duration: 0.1 }}
                        variants={item} 
                        key={project.id} 
                        className={styles.item}>

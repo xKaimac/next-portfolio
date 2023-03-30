@@ -22,6 +22,7 @@ const AboutMe = ({aboutMes}) => {
             <motion.div className={style.container}
                         initial="hidden"
                         animate="visible"
+                        transition={{delay:.3,duration: 0.1}}
                         variants={page}>
                 <article className={style.article}>
                       {aboutMes.data.map((aboutMe) => (

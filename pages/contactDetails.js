@@ -13,7 +13,7 @@ import style from '@/styles/contactDetails.module.css';
 
 
 const ContactDetails = ({contacts}) => {
-  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.1 }},
+  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
                 hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
                 }};
   const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:100}};
@@ -26,12 +26,13 @@ const ContactDetails = ({contacts}) => {
                     animate="visible"
                     variants={page} className={style.container}>
             <h1 className={style.title}>Get In Touch</h1>
-            <motion.ul  initial="hidden"
+            <motion.ol  initial="hidden"
                         animate="visible" 
                         variants={list} 
                         className={style.contactList}>
               {contacts.data.map((contact) => (              
-                <motion.li  whileHover={{scale: [null, 1.3, 1.2]}}
+                <motion.li  whileTap={{scale: [null, 1.02, 1.02]}}
+                            whileHover={{scale: [null, 1.025, 1.025]}}
                             transition={{ duration: 0.1 }}
                             variants={item} key={contact.id}>
                   <Link className={style.link} href={contact.attributes.Info}>
@@ -43,7 +44,7 @@ const ContactDetails = ({contacts}) => {
                   </Link>
                 </motion.li>
               ))}
-            </motion.ul>
+            </motion.ol>
             <ContactForm />
         </motion.div>
         </>

@@ -9,12 +9,16 @@ import { BlogPostsHead } from "@/components/blogPosts/blogPostsHead";
 import styles from "@/styles/blogPosts.module.css";
 
 const BlogPosts = ({ posts }) => {
-  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.2 }},
+  
+  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
   hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
   }};
   const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:100}};
   const item = {visible: { opacity: 1, y:0},
-  hidden: { opacity: 0, y:50 }};
+    hidden: { opacity: 0, y:50 },
+    transition:{ duration: 0.05 }
+
+  }
   return (
     <>
     <BlogPostsHead />
@@ -31,9 +35,8 @@ const BlogPosts = ({ posts }) => {
         {posts.map((post) => {
           const postDate = new Date(post.attributes.Date).toLocaleDateString();
           return (
-            <motion.li whileTap={{scale: [null, 1, 1.1]}}
-                       whileHover={{scale: [null, 1.3, 1.2]}}
-                       transition={{ duration: 0.2 }}
+            <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                       whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
                        variants={item}
                        key={post.id} 
                        className={styles.item}>
