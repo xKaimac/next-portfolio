@@ -25,10 +25,9 @@ const BlogPosts = ({ posts }) => {
     }
   })
   
-  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
-  hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
-  }};
-  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:1}}};
+  const list = {visible: { opacity: 1, y:0, transition: { staggerChildren: .1 }},
+  hidden: { opacity: 0, y:50,}};
+  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
   const item = {visible: { opacity: 1, y:0},
     hidden: { opacity: 0, y:50 },
     transition:{ duration: 0.05 }
@@ -46,10 +45,11 @@ const BlogPosts = ({ posts }) => {
                     variants={page}>
           <h1 className={styles.title}>{"//Dev Blog"}</h1>
 
-          <motion.div className={styles.container}>
-            <motion.ol initial="hidden"
-                       animate="visible" 
-                       variants={list} 
+          <motion.div initial="hidden"
+                      animate="visible" 
+                      variants={list} 
+                      transition={{delay:0}}className={styles.container}>
+            <motion.ol 
                        className={styles.list}>
               {posts.map((post) => {
                 const postDate = new Date(post.attributes.Date).toLocaleDateString();

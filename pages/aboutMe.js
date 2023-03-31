@@ -14,7 +14,7 @@ const AboutMe = ({aboutMes}) => {
     const [isVisible, setVisible] = useState(true);
   
     useEffect(() => {
-      const handleRouteChange = (url, { shallow }) => {
+      const handleRouteChange = () => {
         setVisible(false);
       }
       router.events.on('routeChangeStart', handleRouteChange);
@@ -37,8 +37,7 @@ const AboutMe = ({aboutMes}) => {
                         <motion.div className={style.container}
                                     initial="hidden"
                                     animate="visible"
-                                    
-                                    transition={{delay:.3,duration: 0.1}}
+                                    transition={{duration: 0.1}}
                                     variants={page}>
                             <article className={style.article}>
                                   {aboutMes.data.map((aboutMe) => (

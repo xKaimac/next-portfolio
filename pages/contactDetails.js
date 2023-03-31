@@ -28,8 +28,8 @@ const ContactDetails = ({contacts}) => {
     }
   })
 
-  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
-                hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
+  const list = {visible: { opacity: 1, y:0, transition: { staggerChildren: 0.1 }},
+                hidden: { opacity: 0, y:50
                 }};
   const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:100}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
   const item = {visible: { opacity: 1, y:0},
