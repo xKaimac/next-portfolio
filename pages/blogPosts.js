@@ -42,7 +42,8 @@ const BlogPosts = ({ posts }) => {
                     animate="visible"
                     exit = "leave"
                     transition={{duration: 0.1}}
-                    variants={page}>
+                    variants={page}
+                    key="modal">
           <h1 className={styles.title}>{"//Dev Blog"}</h1>
 
           <motion.div initial="hidden"
