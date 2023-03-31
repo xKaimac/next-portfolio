@@ -16,7 +16,7 @@ const BlogPosts = ({ posts }) => {
   const [isVisible, setVisible] = useState(true);
 
   useEffect(() => {
-    const handleRouteChange = (url, { shallow }) => {
+    const handleRouteChange = () => {
       setVisible(false);
     }
     router.events.on('routeChangeStart', handleRouteChange);
@@ -28,7 +28,7 @@ const BlogPosts = ({ posts }) => {
   const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
   hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
   }};
-  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
+  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:1}}};
   const item = {visible: { opacity: 1, y:0},
     hidden: { opacity: 0, y:50 },
     transition:{ duration: 0.05 }
@@ -55,8 +55,7 @@ const BlogPosts = ({ posts }) => {
                 const postDate = new Date(post.attributes.Date).toLocaleDateString();
                 return (
                   <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
-                             whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
-                     
+                             whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}    
                              variants={item}
                              key={post.id} 
                              className={styles.item}>
