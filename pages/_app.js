@@ -3,6 +3,8 @@ import '@/styles/globals.css';
 import { NavBar } from '@/components/headerFooter/NavBar';
 import { Footer } from '@/components/headerFooter/footer';
 
+import { AnimatePresence } from 'framer-motion';
+
 export default function App({ Component, pageProps }) {
   return (
     <>
@@ -11,7 +13,7 @@ export default function App({ Component, pageProps }) {
         rel="stylesheet"
       />
       <NavBar />
-      <Component className="main-content" {...pageProps} />
+        <Component className="main-content" {...pageProps} />
       <Footer />
     </>
   )

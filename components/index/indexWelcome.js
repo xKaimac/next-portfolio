@@ -11,6 +11,7 @@ export function IndexWelcome() {
         <div className={styles.container}>
             <motion.div initial="hidden"
                         animate="visible" 
+                        exit="hidden"
                         variants={left}
                         transition={{ duration: 1 }}
                         className={styles.left}>
@@ -18,6 +19,7 @@ export function IndexWelcome() {
             </motion.div>
             <motion.div initial="hidden"
                         animate="visible"
+                        exit="hidden"
                         transition={{duration:.2, delay: 1 }} 
                         variants={right} 
                         className={styles.right}>

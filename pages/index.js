@@ -4,18 +4,33 @@ import Link from "next/link";
 
 import styles from "@/styles/Home.module.css";
 
-import { motion } from "framer-motion";
-
+import { AnimatePresence, motion } from "framer-motion";
 import { IndexHead } from "@/components/index/indexHead";
 import { IndexWelcome } from "@/components/index/indexWelcome";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 
 function Home(props) {
+  const router = useRouter();
+  const [isVisible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleRouteChange = (url, { shallow }) => {
+      setVisible(false);
+    }
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  })
+
   const latestPost = props.latestPost;
   const featuredProject = props.featuredProject;
   const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
   hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
   }};
+  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
   const item = {visible: { opacity: 1, y:0},
   hidden: { opacity: 0, y:50 },
   transition:{ duration: 0.05 }};
@@ -23,39 +38,50 @@ function Home(props) {
   return (
     <>
       <IndexHead />
-      <IndexWelcome />
-      <div className={styles.outerContainer}>
-        <div className={styles.latestBlog}>
-          <h2>Latest Blog Post</h2>
-          <ul className={styles.list}>
-            <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
-                       whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
-                       variants={item}
-                       key={latestPost.id} 
-                       className={styles.item}>
-              <Link className={styles.link} href={latestPost.attributes.slug}>
-                <h3 className={styles.postTitle}>{latestPost.attributes.Title}</h3>
-                <p className={styles.subtitle}>{latestPost.attributes.Subtitle}</p>
-              </Link>
-            </motion.li>
-          </ul>
-        </div>
-        <div className={styles.featuredProject}>
-          <h2>Featured Project</h2>
-          <ul className={styles.list}>
-            <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
-                       whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
-                       variants={item}
-                       key={featuredProject.id} 
-                       className={styles.item}>
-              <Link className={styles.link} href="/portfoliogame">
-                <h3 className={styles.postTitle}>{featuredProject.Title}</h3>
-                <p className={styles.subtitle}>{featuredProject.Subtitle}</p>
-              </Link>
-            </motion.li>
-          </ul>
-        </div>
-      </div>
+      <AnimatePresence>
+        {isVisible ? (
+          <motion.div initial="hidden"
+          animate="visible"
+          exit = "leave"
+          transition={{duration: 0.1}}
+          variants={page}>
+        <IndexWelcome />
+
+          <div className={styles.outerContainer}>
+            <div className={styles.latestBlog}>
+              <h2>Latest Blog Post</h2>
+              <ul className={styles.list}>
+                <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                           whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
+                           variants={item}
+                           key={latestPost.id} 
+                           className={styles.item}>
+                  <Link className={styles.link} href={latestPost.attributes.slug}>
+                    <h3 className={styles.postTitle}>{latestPost.attributes.Title}</h3>
+                    <p className={styles.subtitle}>{latestPost.attributes.Subtitle}</p>
+                  </Link>
+                </motion.li>
+              </ul>
+            </div>
+            <div className={styles.featuredProject}>
+              <h2>Featured Project</h2>
+              <ul className={styles.list}>
+                <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                           whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
+                           variants={item}
+                           key={featuredProject.id} 
+                           className={styles.item}>
+                  <Link className={styles.link} href="/portfoliogame">
+                    <h3 className={styles.postTitle}>{featuredProject.Title}</h3>
+                    <p className={styles.subtitle}>{featuredProject.Subtitle}</p>
+                  </Link>
+                </motion.li>
+              </ul>
+            </div>
+          </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
