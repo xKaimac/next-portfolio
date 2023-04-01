@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown";
 import Head from 'next/head';
 
 import styled from 'styled-components';
-import styles from '@/styles/slug.module.css';
 
 import Layout from "@/components/animations/layout";
 
@@ -75,6 +74,21 @@ padding-right: 1rem;
 }
 `
 
+const Body = styled.p`
+font-size: 1.25rem;
+padding-top: 2rem;
+padding: 2rem;
+color: #292929;
+line-height: 1.4;
+
+@media screen and (max-width: 768px) {
+  padding-top: .5rem;
+  font-size: 1.1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+`
+
 const Post = ({ post }) => {
   const postDate = new Date(post.attributes.Date).toLocaleDateString();
 
@@ -88,7 +102,7 @@ const Post = ({ post }) => {
           <Title>{post.attributes.Title}</Title>
           <Subtitle>{post.attributes.Subtitle}</Subtitle>
           <Dates>{postDate}</Dates>
-          <ReactMarkdown className={styles.body}>{post.attributes.Body}</ReactMarkdown>
+          <Body><ReactMarkdown>{post.attributes.Body}</ReactMarkdown></Body>
         </Article>
       </Container>
     </Layout>

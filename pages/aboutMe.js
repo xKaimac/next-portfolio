@@ -64,6 +64,14 @@ const LinkText = styled.p`
 text-align: center;
 `
 
+const Body = styled.p`
+font-size: 1.25rem;
+padding-left: 1rem;
+padding-right: 1rem;
+color: #292929;
+line-height: 1.4;
+`
+
 const AboutMe = ({aboutMes}) => {
     return (
         <Layout>
@@ -73,7 +81,7 @@ const AboutMe = ({aboutMes}) => {
                 <Article>
                     {aboutMes.data.map((aboutMe) => (
                       <div key={aboutMe.id}>
-                          <ReactMarkdown className={style.body}>{aboutMe.attributes.Description}</ReactMarkdown>
+                          <Body><ReactMarkdown className={style.body}>{aboutMe.attributes.Description}</ReactMarkdown></Body>
                           <br/>
                           <LinkText>
                               <Links href="/contactDetails">
