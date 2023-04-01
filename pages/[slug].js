@@ -39,12 +39,10 @@ justify-content: center;
 padding:1rem;
 
 @media screen and (max-width: 1280px) {
-    .article {
       flex-basis: calc(50% - 1rem);
       padding-bottom: 1rem;
       padding-top: 0;
       max-width: 85vw;
-    }
 }
 `
 

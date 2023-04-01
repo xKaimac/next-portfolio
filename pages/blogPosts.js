@@ -14,9 +14,7 @@ font-size: 5rem;
 padding-bottom: 1rem;
 
 @media screen and (max-width: 1280px) {
-  .title {
     font-size: 3rem;
-  }
 `
 const Container = styled(motion.div)`
 display: flex;
@@ -85,11 +83,8 @@ padding: 1rem;
 }
 
 @media screen and (max-width: 1280px) {
-
-  .postTitle {
     font-size: 1.5rem;
     padding-top: 1rem;
-  }
 }
 `
 const Subtitle = styled.p `
