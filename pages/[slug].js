@@ -10,20 +10,15 @@ import styles from '@/styles/slug.module.css';
 import Layout from "@/components/animations/layout";
 
 const Container = styled.div`
-max-width: 50vw;
-padding-top: 5rem;
-padding-bottom: 5rem;
-padding-left: 5rem;
-padding-right: 5rem;
+width: 50vw;
 margin: 0 auto;
 justify-content: center;
+padding-bottom: 2rem;
+padding-top: 2rem;
 
-@media screen and (max-width: 768px) {
-padding-top: 1rem;
-padding-bottom: 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+@media screen and (max-width: 810px) {
+    width: 85vw;
+    padding-bottom: 2rem;
 }
 `
 
