@@ -119,8 +119,7 @@ const BlogPosts = ({ posts }) => {
       <Title>{"//Dev Blog"}</Title>
       <Container initial="hidden"
                 animate="visible" 
-                variants={list} 
-                transition={{delay:0}}>
+                variants={list} >
         <List>
           {posts.map((post) => {
             const postDate = new Date(post.attributes.Date).toLocaleDateString();
