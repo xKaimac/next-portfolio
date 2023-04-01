@@ -45,22 +45,10 @@ padding-right: .5rem;
 padding-bottom: 1rem;
 
 @media screen and (max-width: 1280px) {
-
-  .item {
     flex-basis: calc(50% - 1rem);
     padding-bottom: 1rem;
     padding-top: 0;
     max-width: 85vw;
-  }
-
-  @media screen and (max-width: 810px) {
-
-    .item {
-      flex-basis: calc(50% - 1rem);
-      padding-bottom: 1rem;
-      padding-top: 0;
-    }
-    
 `
 
 const Posts = styled.a`
@@ -82,10 +70,9 @@ align-items: center;
 
 @media screen and (max-width: 810px) {
 
-  .link {
     width: 85vw;
     height: auto;
-  }
+
 `
 const PostTitle = styled.h2`
 margin-top: 0;

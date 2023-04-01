@@ -18,12 +18,10 @@ margin: 0 auto;
 justify-content: center;
  
 @media screen and (max-width: 768px) {
-  .container {
     max-width: 100%;
     margin: 0 auto;
     padding: 1rem;
     border-radius: 0;
-  }
 `
 
 const Article = styled.div`
