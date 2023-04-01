@@ -1,6 +1,12 @@
 import React from 'react'
 
 import styled from 'styled-components'
+import emailjs from 'emailjs-com'
+import Swal from 'sweetalert2';
+
+const SERVICE_ID = "service_kgx4plf";
+const TEMPLATE_ID = "template_7fp5blp";
+const USER_ID = "fsAp9_EBVSDfTpY1G";
 
 const Subtitle = styled.h1`
 font-size: 2rem;
@@ -77,17 +83,27 @@ margin-top: auto;
 `
 const ContactForm = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
-  const onSubmit = (e) => {
-    e.preventDefault()
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
     setFormStatus('Submitting...')
-    const { name, email, message } = e.target.elements
-    let conFom = {
-      name: name.value,
-      email: email.value,
-      message: message.value,
-    }
-    console.log(conFom)
-  }
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID)
+      .then((result) => {
+        console.log(result.text);
+        Swal.fire({
+          icon: 'success',
+          title: 'Message Sent Successfully'
+        })
+      }, (error) => {
+        console.log(error.text);
+        Swal.fire({
+          icon: 'error',
+          title: 'Ooops, something went wrong',
+          text: error.text,
+        })
+      });
+    setFormStatus('Send')
+    e.target.reset()
+  };
   return (
     <>
       <Subtitle>
@@ -97,7 +113,7 @@ const ContactForm = () => {
         <Title>
           Contact me
         </Title>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleOnSubmit}>
           <FormFields>
             <FormLabel htmlFor="name">
               Name
@@ -117,7 +133,7 @@ const ContactForm = () => {
             <FormText id="message" required />
           </FormFields>
           <ButtonContainer>
-            <FormButton type="submit">
+            <FormButton type="submit" value="Send">
               {formStatus}
             </FormButton>
           </ButtonContainer>
