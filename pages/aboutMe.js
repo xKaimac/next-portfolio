@@ -5,7 +5,6 @@ import { AboutMeHead } from "@/components/aboutMe/aboutMeHead";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Layout from "@/components/animations/layout";
 
-import style from '@/styles/aboutMe.module.css'
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -81,7 +80,7 @@ const AboutMe = ({aboutMes}) => {
                 <Article>
                     {aboutMes.data.map((aboutMe) => (
                       <div key={aboutMe.id}>
-                          <Body><ReactMarkdown className={style.body}>{aboutMe.attributes.Description}</ReactMarkdown></Body>
+                          <Body><ReactMarkdown>{aboutMe.attributes.Description}</ReactMarkdown></Body>
                           <br/>
                           <LinkText>
                               <Links href="/contactDetails">
