@@ -1,88 +1,62 @@
 import axios from "axios";
 
-import Link from "next/link";
-
-import styles from "@/styles/Home.module.css";
-
-import { AnimatePresence, motion } from "framer-motion";
 import { IndexHead } from "@/components/index/indexHead";
 import { IndexWelcome } from "@/components/index/indexWelcome";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import Layout from "@/components/animations/layout";
+import { Links } from "@/components/index/indexLinks.styled"
+import { OuterContainer } from "@/components/index/outerContainer.styled"
+import { LatestBlog } from "@/components/index/latestBlog.styled"
+import { IndexH2 } from "@/components/index/indexH2.styled"
+import { IndexList } from "@/components/index/indexList.styled";
+import { IndexItem } from "@/components/index/indexItem.styled";
+import { IndexSubtitle } from "@/components/index/indexSubtitle.styled";
+import { IndexPostTitle } from "@/components/index/indexPostTitle.styled";
 
 
 function Home(props) {
-  const router = useRouter();
-  const [isVisible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const handleRouteChange = (url, { shallow }) => {
-      setVisible(false);
-    }
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  })
-
   const latestPost = props.latestPost;
   const featuredProject = props.featuredProject;
-  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
-  hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
-  }};
-  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
   const item = {visible: { opacity: 1, y:0},
   hidden: { opacity: 0, y:50 },
   transition:{ duration: 0.05 }};
-  
+  const list = {visible: { opacity: 1, y:0, transition: { when: "beforeChildren", staggerChildren: 0.05 }},
+  hidden: { opacity: 0, y:50, transition: { when: "afterChildren" } 
+  }};
   return (
-    <>
+    <Layout>
       <IndexHead />
-      <AnimatePresence>
-        {isVisible ? (
-          <motion.div initial="hidden"
-          animate="visible"
-          exit = "leave"
-          transition={{duration: 0.1}}
-          variants={page}>
         <IndexWelcome />
-
-          <div className={styles.outerContainer}>
-            <div className={styles.latestBlog}>
-              <h2>Latest Blog Post</h2>
-              <ul className={styles.list}>
-                <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
-                           whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
-                           variants={item}
-                           key={latestPost.id} 
-                           className={styles.item}>
-                  <Link className={styles.link} href={latestPost.attributes.slug}>
-                    <h3 className={styles.postTitle}>{latestPost.attributes.Title}</h3>
-                    <p className={styles.subtitle}>{latestPost.attributes.Subtitle}</p>
-                  </Link>
-                </motion.li>
-              </ul>
-            </div>
-            <div className={styles.featuredProject}>
-              <h2>Featured Project</h2>
-              <ul className={styles.list}>
-                <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
-                           whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
-                           variants={item}
-                           key={featuredProject.id} 
-                           className={styles.item}>
-                  <Link className={styles.link} href="/portfoliogame">
-                    <h3 className={styles.postTitle}>{featuredProject.Title}</h3>
-                    <p className={styles.subtitle}>{featuredProject.Subtitle}</p>
-                  </Link>
-                </motion.li>
-              </ul>
-            </div>
-          </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </>
+          <OuterContainer>
+            <LatestBlog>
+              <IndexH2>Latest Blog Post</IndexH2>
+              <IndexList>
+                <IndexItem whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                      whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
+                      variants={item}
+                      key={latestPost.id}>
+                  <Links href={latestPost.attributes.slug}>
+                    <IndexPostTitle>{latestPost.attributes.Title}</IndexPostTitle>
+                    <IndexSubtitle>{latestPost.attributes.Subtitle}</IndexSubtitle>
+                  </Links>
+                </IndexItem>
+              </IndexList>
+            </LatestBlog>
+            <LatestBlog>
+              <IndexH2>Featured Project</IndexH2>
+              <IndexList>
+                <IndexItem whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                      whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}
+                      variants={item}
+                      key={featuredProject.id} >
+                  <Links href="/portfoliogame">
+                    <IndexPostTitle>{featuredProject.Title}</IndexPostTitle>
+                    <IndexSubtitle>{featuredProject.Subtitle}</IndexSubtitle>
+                  </Links>
+                </IndexItem>
+              </IndexList>
+            </LatestBlog>
+          </OuterContainer>
+      </Layout>
   );
 }
 

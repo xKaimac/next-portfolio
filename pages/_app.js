@@ -1,20 +1,27 @@
 import '@/styles/globals.css';
 
+
 import { NavBar } from '@/components/headerFooter/NavBar';
 import { Footer } from '@/components/headerFooter/footer';
-
 import { AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
 
-export default function App({ Component, pageProps }) {
+
+
+
+const App = ({ Component, pageProps }) => {
+  const router= useRouter()
+
+
   return (
     <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-      <NavBar />
-        <Component className="main-content" {...pageProps} />
-      <Footer />
+      <NavBar></NavBar>
+      <AnimatePresence mode="wait" >
+        <Component key={router.asPath}{...pageProps} />
+      </AnimatePresence>
+      <Footer></Footer>
     </>
   )
 }
+
+export default App

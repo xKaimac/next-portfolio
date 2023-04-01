@@ -4,70 +4,154 @@ import Link from "next/link";
 
 import { ProjectsHead } from "@/components/projects/projectsHead";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+ import Layout from "@/components/animations/layout";
 
-import styles from "@/styles/projects.module.css";
+import styled from "styled-components";
+
+const Title = styled.h1`
+padding-top: 2rem;
+text-align: center;
+font-size: 5rem;
+padding-bottom: 1rem;
+
+@media screen and (max-width: 1280px) {
+    font-size: 3rem;
+`
+
+const Container = styled(motion.div)`
+display: flex;
+max-width: 100vw;
+padding-left: 5rem;
+padding-right: 5rem;
+padding-bottom: 2rem;
+justify-content: center;
+`
+
+const List = styled(motion.ol)`
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+flex-wrap: wrap;
+text-align: center;
+padding-bottom: 1rem;
+justify-content: center;
+`
+const Item = styled(motion.li)`
+flex-basis: calc(33.33% - 20px);
+padding-left: .5rem;
+padding-right: .5rem;
+padding-bottom: 1rem;
+
+@media screen and (max-width: 1280px) {
+
+  .item {
+    flex-basis: calc(50% - 1rem);
+    padding-bottom: 1rem;
+    padding-top: 0;
+    max-width: 85vw;
+  }
+
+  @media screen and (max-width: 810px) {
+
+    .item {
+      flex-basis: calc(50% - 1rem);
+      padding-bottom: 1rem;
+      padding-top: 0;
+    }
+    
+`
+
+const Posts = styled.a`
+display: flex;
+background-color: #ffffff;
+border: 2px solid #ddd;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+transition: box-shadow 0.3s ease;
+transition: ease-in-out 0.1s;
+text-decoration: none;
+border-radius: 1rem;
+height: 25rem;
+width: 50rem;
+align-items: center;
+&:hover{
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #5CB0FF;
+}
+
+@media screen and (max-width: 810px) {
+
+  .link {
+    width: 85vw;
+    height: auto;
+  }
+`
+const PostTitle = styled.h2`
+margin-top: 0;
+font-size: 2rem;
+font-weight: bold;
+color: #333333;
+margin-bottom: 5px;
+
+@media screen and (max-width: 1280px) {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+`
+
+const Subtitle = styled.p`
+font-size: 1rem;
+color: #666666;
+margin-bottom: 0;
+`
+
+const Body = styled.p`
+font-size: 1.25rem;
+padding-left: 5rem;
+padding-right: 5rem;
+color: #292929;
+
+@media screen and (max-width: 810px) {
+  font-size: 1.1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+`
+
 
 const Projects = ({ projects }) => {
-  const router = useRouter();
-  const [isVisible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const handleRouteChange = (url, { shallow }) => {
-      setVisible(false);
-    }
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  })
-
-  const list = {visible: { opacity: 1, y:0, transition: { staggerChildren: 0.1 }},
-  hidden: { opacity: 0, y:50
-  }};
-  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
+  const list = {visible: { opacity: 1, y:0, 
+                transition: { staggerChildren: 0.1 }},
+                hidden: { opacity: 0, y:50}};
   const item = {visible: { opacity: 1, y:0},
-  hidden: { opacity: 0, y:50 }};
+                hidden: { opacity: 0, y:50 }};
   return (
-    <> 
+    <Layout> 
       <ProjectsHead />
-      <AnimatePresence>
-      {isVisible > 0 ? (
-        <motion.div initial="hidden"
-                    animate="visible"
-                    exit = "leave"
-                    transition={{duration: 0.1}}
-                    variants={page}>
-        <h1 className={styles.title}>My Projects</h1>
-        <motion.div className={styles.container}>
-          <motion.ul initial="hidden"
-                     animate="visible" 
-                     variants={list} 
-                     className={styles.list}>
+        <Title>My Projects</Title>
+        <Container>
+          <List initial="hidden"
+                animate="visible" 
+                variants={list} >
             {projects.data.map((project) => (
-              <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
-                         whileHover={{scale: [null, 1.025, 1.025]}}
-                         transition={{ duration: 0.1 }}
-                         variants={item} 
-                         key={project.id} 
-                         className={styles.item}>
-                <Link className= {styles.link} href={project.attributes.link}>
-                    <div className={styles.postText}>
-                      <h2 className={styles.postTitle}>{project.attributes.Title}</h2>
-                      <p className={styles.subtitle}>{project.attributes.Subtitle}</p>
-                      <p className={styles.body}>{project.attributes.Body}</p>
+              <Item whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                    whileHover={{scale: [null, 1.025, 1.025]}}
+                    transition={{ duration: 0.1 }}
+                    variants={item} 
+                    key={project.id} >
+                <Posts href={project.attributes.link}>
+                    <div>
+                      <PostTitle>{project.attributes.Title}</PostTitle>
+                      <Subtitle>{project.attributes.Subtitle}</Subtitle>
+                      <Body>{project.attributes.Body}</Body>
                     </div>
-                </Link>
-              </motion.li>
+                </Posts>
+              </Item>
             ))}
-          </motion.ul>
-        </motion.div>
-        </motion.div>
-      ) : null}
-      </AnimatePresence>
-    </>
+          </List>
+        </Container>
+    </Layout>
   );
 };
 

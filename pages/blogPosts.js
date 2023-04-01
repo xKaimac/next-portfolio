@@ -1,81 +1,147 @@
 import axios from "axios";
 
-import Link from "next/link";
-
-import { motion, AnimatePresence } from "framer-motion";
-
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-
+import { motion } from "framer-motion";
 import { BlogPostsHead } from "@/components/blogPosts/blogPostsHead";
+import Layout from "@/components/animations/layout";
 
-import styles from "@/styles/blogPosts.module.css";
+
+import styled from "styled-components";
+
+const Title = styled.h1`
+padding-top: 2rem;
+text-align: center;
+font-size: 5rem;
+padding-bottom: 1rem;
+
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 3rem;
+  }
+`
+const Container = styled(motion.div)`
+display: flex;
+max-width: 100vw;
+padding-left: 5rem;
+padding-right: 5rem;
+padding-bottom: 2rem;
+justify-content: center;
+`
+const List = styled(motion.ol)`
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+flex-wrap: wrap;
+text-align: center;
+justify-content: center;
+align-items: center;
+`
+const Item = styled(motion.li)`
+flex-basis: calc(33.33% - 1rem);
+padding-left: .5rem; 
+padding-right: .5rem;
+padding-bottom: 1rem;
+max-width: 25%;
+
+@media screen and (max-width: 1280px) {
+    flex-basis: calc(50% - 1rem);
+    padding-bottom: 1rem;
+    padding-top: 0;
+    max-width: 85vw;
+}
+
+`
+
+const Posts = styled.a`
+display: flex;
+background-color: #ffffff;
+border: 2px solid #ddd;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+transition: box-shadow 0.3s ease;
+transition: ease-in-out 0.1s;
+text-decoration: none;
+border-radius: 1rem;
+height: 20rem;
+align-items: center;
+justify-content: center;
+&:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #5CB0FF;
+}
+
+@media screen and (max-width: 768px) {
+width: 85vw;
+height: 85vw;
+}
+`
+
+const PostTitle = styled.h2 `
+margin-top: 0;
+margin-bottom: 0;
+font-size: 2rem;
+font-weight: bold;
+color: #333;
+padding: 1rem;
+}
+
+@media screen and (max-width: 1280px) {
+
+  .postTitle {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+  }
+}
+`
+const Subtitle = styled.p `
+font-size: 1.25rem;
+color: #666;
+margin-bottom: 0;
+`
+
+const Dates = styled.p`
+font-size: 1rem;
+color: #999;
+margin-top: 5px;
+`
 
 const BlogPosts = ({ posts }) => {
-  const router = useRouter();
-  const [isVisible, setVisible] = useState(true);
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      setVisible(false);
-    }
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  })
-  
   const list = {visible: { opacity: 1, y:0, transition: { staggerChildren: .1 }},
   hidden: { opacity: 0, y:50,}};
-  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
   const item = {visible: { opacity: 1, y:0},
     hidden: { opacity: 0, y:50 },
     transition:{ duration: 0.05 }
 
   }
   return (
-    <>
-    <BlogPostsHead />
-    <AnimatePresence>
-      {isVisible ? (
-        <motion.div initial="hidden"
-                    animate="visible"
-                    exit = "leave"
-                    transition={{duration: 0.1}}
-                    variants={page}
-                    key="modal">
-          <h1 className={styles.title}>{"//Dev Blog"}</h1>
-
-          <motion.div initial="hidden"
-                      animate="visible" 
-                      variants={list} 
-                      transition={{delay:0}}className={styles.container}>
-            <motion.ol 
-                       className={styles.list}>
-              {posts.map((post) => {
-                const postDate = new Date(post.attributes.Date).toLocaleDateString();
-                return (
-                  <motion.li whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
-                             whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}    
-                             variants={item}
-                             key={post.id} 
-                             className={styles.item}>
-                    <Link className={styles.link} href={post.attributes.slug}>
-                        <div className={styles.postText}>
-                          <h2 className={styles.postTitle}>{post.attributes.Title}</h2>
-                          <p className={styles.subtitle}>{post.attributes.Subtitle}</p>
-                          <p className={styles.date}>{postDate}</p>
-                        </div>
-                    </Link>
-                  </motion.li>
-                );
-              })}
-            </motion.ol>
-          </motion.div>
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
-    </>
+    <Layout> 
+      <BlogPostsHead />
+      <Title>{"//Dev Blog"}</Title>
+      <Container initial="hidden"
+                animate="visible" 
+                variants={list} 
+                transition={{delay:0}}>
+        <List>
+          {posts.map((post) => {
+            const postDate = new Date(post.attributes.Date).toLocaleDateString();
+            return (
+              <Item whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
+                    whileHover={{scale: [null, 1.025, 1.025], transition: { duration: 0.1 }}}    
+                    variants={item}
+                    key={post.id}>
+                <Posts href={post.attributes.slug}>
+                    <div>
+                      <PostTitle>{post.attributes.Title}</PostTitle>
+                      <Subtitle>{post.attributes.Subtitle}</Subtitle>
+                      <Dates>{postDate}</Dates>
+                    </div>
+                </Posts>
+              </Item>
+            );
+          })}
+        </List>
+      </Container>
+    </Layout>
   );
 };
 

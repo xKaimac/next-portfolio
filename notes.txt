@@ -1,12 +1,10 @@
-headings for the portfolio game page
-                html page
 
 Navbar stick to top
 
-font colour is different in slug links to the project links
+currently following the logrocket.com blog post on page transitions. need to fix Layout - get error on index. Should also make a layout component for lists to clean things up
 
-contact form colour?
+maybe remove the bounce when the page loads in
 
-res on contact images are background
+oldWebsite title component
 
-make gif a link to project 
+project pages should have import markup text 

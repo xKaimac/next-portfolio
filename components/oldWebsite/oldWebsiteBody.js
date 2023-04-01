@@ -1,9 +1,24 @@
-import style from '@/styles/oldwebsite.module.css'
+import styled from 'styled-components'
+
+const Body = styled.p`
+font-size: 1.25rem;
+padding-top: 2rem;
+padding: 2rem;
+color: #292929;
+line-height: 1.4;
+
+
+@media screen and (max-width: 768px) {
+
+    .body {
+      padding: 1rem;
+    }
+`
 
 export function OldWebsiteBody(props) { 
 
     return (
-            <p className={style.body}>
+            <Body>
                 When I first began web development, I used HTML, CSS, and JavaScript to build a website. 
                 It was a fun project that allowed me to explore the basics of web development, but I knew I had more to learn.
             <br/><br/>
@@ -27,6 +42,6 @@ export function OldWebsiteBody(props) {
                 For those just starting out in web development, I encourage you to showcase your early projects. 
                 Doing so is an excellent way to demonstrate how far you&apos;ve come and to inspire others to start their coding journey. 
                 And if you&apos;re ready to take your skills to the next level, consider learning React, a potent tool for building fast, efficient, and flexible websites.
-            </p>
+            </Body>
     );
 }

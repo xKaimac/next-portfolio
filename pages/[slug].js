@@ -4,53 +4,101 @@ import ReactMarkdown from "react-markdown";
 
 import Head from 'next/head';
 
-import styles from "@/styles/slug.module.css";
+import styled from 'styled-components';
+import styles from '@/styles/slug.module.css';
 
-import { AnimatePresence, motion} from "framer-motion";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import Layout from "@/components/animations/layout";
 
+const Container = styled.div`
+max-width: 50vw;
+padding-top: 5rem;
+padding-bottom: 5rem;
+padding-left: 5rem;
+padding-right: 5rem;
+margin: 0 auto;
+justify-content: center;
 
+@media screen and (max-width: 768px) {
+padding-top: 1rem;
+padding-bottom: 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+`
 
+const Article = styled.article`
+display: block;
+background-color: #ffffff;
+border: 2px solid #ddd;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+transition: box-shadow 0.3s ease;
+text-decoration: none;
+border-radius: 1rem;
+justify-content: center;
+padding:1rem;
 
-export default function Post({ post }) {
+@media screen and (max-width: 1280px) {
+    .article {
+      flex-basis: calc(50% - 1rem);
+      padding-bottom: 1rem;
+      padding-top: 0;
+      max-width: 85vw;
+    }
+}
+`
+
+const Title = styled.h1`
+font-size: 2rem;
+font-weight: bold;
+color: #333;
+padding-left: 2rem;
+padding-right: 2rem;
+
+@media screen and (max-width: 768px) {
+font-size: 1.5rem;
+padding-left: 1rem;
+padding-right: 1rem;
+}
+`
+
+const Subtitle = styled.p`
+padding-left: 2rem;
+padding-right: 2rem;
+
+@media screen and (max-width: 768px) {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+`
+
+const Dates = styled.p`
+padding-left: 2rem;
+padding-right: 2rem;
+
+@media screen and (max-width: 768px) {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+`
+
+const Post = ({ post }) => {
   const postDate = new Date(post.attributes.Date).toLocaleDateString();
-  const page = {visible: { opacity: 1, y:0}, hidden: { opacity: 0, y:50, transition:{duration:0.5}}, leave: { opacity: 0, y:-50, transition:{duration:0.1}}};
-  const [isVisible, setVisible] = useState(true);
-  const router = useRouter();
-  useEffect(() => {
-    const handleRouteChange = (url, { shallow }) => {
-      setVisible(false);
-    }
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  })
+
   return (
-    <>
+    <Layout>
     <Head>
       <title>{"//"}{post.attributes.Title}</title>
     </Head>
-    <AnimatePresence >
-      {isVisible ? (
-      <motion.main initial="hidden"
-                   animate="visible"
-                   exit= "leave"
-                   transision={{duration: 0.1}}
-                   variants={page}
-                   className={styles.container}>
-        
-          <article className={styles.article}>
-            <h1 className={styles.title}>{post.attributes.Title}</h1>
-            <p className={styles.subtitle}>{post.attributes.Subtitle}</p>
-            <p className={styles.date}>{postDate}</p>
-            <ReactMarkdown className={styles.body}>{post.attributes.Body}</ReactMarkdown>
-          </article>
-      </motion.main>
-): null}
-    </AnimatePresence>
-    </>
+      <Container>
+        <Article>
+          <Title>{post.attributes.Title}</Title>
+          <Subtitle>{post.attributes.Subtitle}</Subtitle>
+          <Dates>{postDate}</Dates>
+          <ReactMarkdown className={styles.body}>{post.attributes.Body}</ReactMarkdown>
+        </Article>
+      </Container>
+    </Layout>
   );
 }
 
@@ -77,3 +125,5 @@ export async function getStaticProps({ params }) {
     props: { post }
   };
 }
+
+export default Post;
