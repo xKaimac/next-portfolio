@@ -92,7 +92,7 @@ const ContactForm = () => {
         Swal.fire({
           icon: 'success',
           title: 'Message Sent Successfully'
-        })
+        },setFormStatus('Send'))
       }, (error) => {
         console.log(error.text);
         Swal.fire({
@@ -101,7 +101,7 @@ const ContactForm = () => {
           text: error.text,
         })
       });
-    setFormStatus('Send')
+    
     e.target.reset()
   };
   return (
@@ -114,26 +114,26 @@ const ContactForm = () => {
           Contact me
         </Title>
         <form onSubmit={handleOnSubmit}>
-          <FormFields>
+          <FormFields >
             <FormLabel htmlFor="name">
               Name
             </FormLabel>
-            <FormControl type="text" id="name" required />
+            <FormControl type="text" id="name" required name="user_name"/>
           </FormFields>
-          <FormFields>
+          <FormFields >
             <FormLabel htmlFor="email">
               Email
             </FormLabel>
-            <FormControl type="email" id="email" required />
+            <FormControl type="email" id="email" required name="user_email"/>
           </FormFields>
-          <FormFields>
+          <FormFields >
             <FormLabel htmlFor="message">
               Message
             </FormLabel>
-            <FormText id="message" required />
+            <FormText id="message" required name="user_message"/>
           </FormFields>
           <ButtonContainer>
-            <FormButton type="submit" value="Send">
+            <FormButton type="submit" value="Send" >
               {formStatus}
             </FormButton>
           </ButtonContainer>
