@@ -113,6 +113,7 @@ const Projects = ({ projects }) => {
                 hidden: { opacity: 0, y:50}};
   const item = {visible: { opacity: 1, y:0},
                 hidden: { opacity: 0, y:50 }};
+  const reverseProjects = projects.data.slice().reverse();
   return (
     <Layout> 
       <ProjectsHead />
@@ -121,7 +122,7 @@ const Projects = ({ projects }) => {
           <List initial="hidden"
                 animate="visible" 
                 variants={list} >
-            {projects.data.map((project) => (
+            {reverseProjects.map((project) => (
               <Item whileTap={{scale: [null, 1.02, 1.02], transition: {duration: 0.1}}}
                     whileHover={{scale: [null, 1.025, 1.025]}}
                     transition={{ duration: 0.1 }}
