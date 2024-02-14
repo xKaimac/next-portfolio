@@ -1,26 +1,13 @@
 import axios from "axios";
 import Link from 'next/link';
 
-import { AboutMeHead } from "@/components/aboutMe/aboutMeHead";
+import { Title } from "@/components/pages/title";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Layout from "@/components/animations/layout";
+import { CustomHead } from "@/components/pages/head";
 
 import styled from 'styled-components';
 
-const Title = styled.h1`
-padding-top: 2rem;
-padding-bottom: 1rem;
-text-align: center;
-font-size: 5rem;
-
-@media screen and (max-width: 1280px) {
-font-size: 3rem;
-}
-
-@media screen and (max-width: 810px) {
-font-size: 3rem;
-}
-`
 const Container = styled.div`
 width: 50vw;
 margin: 0 auto;
@@ -74,8 +61,8 @@ line-height: 1.4;
 const AboutMe = ({aboutMes}) => {
     return (
         <Layout>
-            <AboutMeHead />
-            <Title>About Me</Title>
+            <CustomHead text="//About Me"/>
+            <Title text="About Me"/>
             <Container>
                 <Article>
                     {aboutMes.data.map((aboutMe) => (
