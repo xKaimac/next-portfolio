@@ -1,9 +1,15 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import Link from "next/link";
 
-import { motion } from "framer-motion";
+const Img = styled.img `
+width: 30vw;
 
+@media only screen and (max-width: 768px){
+  width: 80vw;
+} 
+`
 const Left = styled(motion.div) `
 flex: 1;
 font-size: 5vw;
@@ -34,14 +40,6 @@ const Right = styled(motion.div) `
     align-items: center;
   }
 `;
-
-const Img = styled.img `
-width: 30vw;
-
-@media only screen and (max-width: 768px){
-  width: 80vw;
-} 
-`
 
 const Container = styled.div `
   max-width: 100vw;

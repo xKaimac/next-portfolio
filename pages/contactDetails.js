@@ -1,5 +1,5 @@
 import ContactForm from "@/components/contactDetails/ContactForm";
-import { ContactDetailsHead }  from "@/components/contactDetails/contactDetailsHead";
+import { CustomHead }  from "@/components/pages/head";
 
 import axios from "axios";
 
@@ -62,7 +62,7 @@ const ContactDetails = ({contacts}) => {
                 hidden: { opacity: 0, y:50 }};
     return (
       <Layout>
-        <ContactDetailsHead />
+        <CustomHead text="//Contact Details"/>
         <Container>
             <Title>Get In Touch</Title>
             <List initial="hidden"

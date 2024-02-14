@@ -1,17 +1,10 @@
 import axios from "axios";
 
-import { IndexHead } from "@/components/index/indexHead";
+import { CustomHead } from "@/components/pages/head";
 import { IndexWelcome } from "@/components/index/indexWelcome";
+import { Links, OuterContainer } from "@/styles/globals.styled.jsx";
 import Layout from "@/components/animations/layout";
-import { Links } from "@/components/index/indexLinks.styled"
-import { OuterContainer } from "@/components/index/outerContainer.styled"
-import { LatestBlog } from "@/components/index/latestBlog.styled"
-import { IndexH2 } from "@/components/index/indexH2.styled"
-import { IndexList } from "@/components/index/indexList.styled";
-import { IndexItem } from "@/components/index/indexItem.styled";
-import { IndexSubtitle } from "@/components/index/indexSubtitle.styled";
-import { IndexPostTitle } from "@/components/index/indexPostTitle.styled";
-
+import { LatestBlog, IndexList, IndexItem, Subtitle, IndexH2, IndexPostTitle } from "@/styles/index.styled.jsx";
 
 function Home(props) {
   const latestPost = props.latestPost;
@@ -24,7 +17,7 @@ function Home(props) {
   }};
   return (
     <Layout>
-      <IndexHead />
+      <CustomHead text="//Home" meta={{ property:"og:image", content:"https://res.cloudinary.com/dhfmjugt0/image/upload/v1680130330/Screenshot_from_2023_03_30_09_21_52_0de5e91286.png?updated_at=2023-03-29T22:52:11.653Z"}} />
         <IndexWelcome />
           <OuterContainer>
             <LatestBlog>
@@ -36,7 +29,7 @@ function Home(props) {
                       key={latestPost.id}>
                   <Links href={latestPost.attributes.slug}>
                     <IndexPostTitle>{latestPost.attributes.Title}</IndexPostTitle>
-                    <IndexSubtitle>{latestPost.attributes.Subtitle}</IndexSubtitle>
+                    <Subtitle>{latestPost.attributes.Subtitle}</Subtitle>
                   </Links>
                 </IndexItem>
               </IndexList>
@@ -50,7 +43,7 @@ function Home(props) {
                       key={featuredProject.id} >
                   <Links href="/portfoliogame">
                     <IndexPostTitle>{featuredProject.Title}</IndexPostTitle>
-                    <IndexSubtitle>{featuredProject.Subtitle}</IndexSubtitle>
+                    <Subtitle>{featuredProject.Subtitle}</Subtitle>
                   </Links>
                 </IndexItem>
               </IndexList>

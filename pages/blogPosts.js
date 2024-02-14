@@ -1,21 +1,12 @@
 import axios from "axios";
 
 import { motion } from "framer-motion";
-import { BlogPostsHead } from "@/components/blogPosts/blogPostsHead";
 import Layout from "@/components/animations/layout";
-
+import { Title } from "@/components/pages/title";
+import { CustomHead }from "@/components/pages/head";
 
 import styled from "styled-components";
 
-const Title = styled.h1`
-padding-top: 2rem;
-text-align: center;
-font-size: 5rem;
-padding-bottom: 1rem;
-
-@media screen and (max-width: 1280px) {
-    font-size: 3rem;
-`
 const Container = styled(motion.div)`
 display: flex;
 max-width: 100vw;
@@ -110,8 +101,8 @@ const BlogPosts = ({ posts }) => {
   }
   return (
     <Layout> 
-      <BlogPostsHead />
-      <Title>{"//Dev Blog"}</Title>
+      <CustomHead text="//Blog Posts" />
+      <Title text="//Dev Blog"/>
       <Container initial="hidden"
                 animate="visible" 
                 variants={list} >
