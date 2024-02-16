@@ -1,27 +1,25 @@
-import '@/styles/globals.css';
-
-
-import { NavBar } from '@/components/headerFooter/NavBar';
-import { Footer } from '@/components/headerFooter/footer';
 import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
-
-
-
+import { NavBar } from '@/components/headerFooter/NavBar';
+import { Footer } from '@/components/headerFooter/footer';
+import '@/styles/globals.css';
+import Layout from '@/components/animations/layout';
+import React from 'react';
 
 const App = ({ Component, pageProps }) => {
   const router= useRouter()
 
-
   return (
-    <>
-      <NavBar></NavBar>
+    <React.Fragment>
+      <NavBar/>
       <AnimatePresence mode="wait" >
-        <Component key={router.asPath}{...pageProps} />
+        <Layout>
+          <Component key={router.asPath}{...pageProps} />
+        </Layout>
       </AnimatePresence>
-      <Footer></Footer>
-    </>
+      <Footer/>
+    </React.Fragment>
   )
 }
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import { StyledTitle } from "@styles/globals.styled";
+import { StyledTitle } from '@/styles/globals.styled';
 
 export function Title({ text }) {
     return (
