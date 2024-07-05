@@ -3,7 +3,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Details
 This is the repo for my portfolio web app, which  is a showcase of the projects that I'm most proud of. I hve used Next.JS to create the boilerplate, and used numerous tools to help create the fluid, modern design that you can see.
 
-This website is hosted at [kaimac.com.au].
+This website is hosted at [kaimac.com.au](https://www.kaimac.com.au).
+
+****
 
 ## Getting Started
 
